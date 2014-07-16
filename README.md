@@ -2,6 +2,8 @@
 
 Log Watcher is a package which allows a user to watch a log file and track some data.
 
+[![Build Status](https://travis-ci.org/ThomasKliszowski/log_watcher.svg?branch=master)](https://travis-ci.org/ThomasKliszowski/log_watcher)
+
 ## Installation
 
 Log Watcher is available on Pypi:
