@@ -4,7 +4,7 @@ from setuptools import setup
 import os.path as op
 CURRENT_DIR = op.dirname(__file__)
 
-version = '0.1.2'
+version = open(op.join(CURRENT_DIR, 'VERSION.txt')).read()
 
 requirements = open(op.join(CURRENT_DIR, 'requirements.txt')).read()
 

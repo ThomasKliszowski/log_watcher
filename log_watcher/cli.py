@@ -2,6 +2,7 @@ from log_watcher import validators
 from log_watcher.parser import KernelParser
 from log_watcher.tracker import CloudwatchTracker
 from log_watcher.utils import get_hostname
+from log_watcher import settings
 
 import click
 import time
@@ -11,6 +12,7 @@ logger = logging.getLogger(__name__)
 
 
 @click.command()
+@click.version_option(settings.VERSION)
 @click.option(
     '--file-path',
     default='/tmp/kern.log',
