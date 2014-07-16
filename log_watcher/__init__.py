@@ -1,6 +1,7 @@
 import log_watcher
-import imp
 import logging.config
+import logutils.dictconfig
+import imp
 import os
 
 # -----------------------------------------------------------------------------
@@ -58,4 +59,9 @@ if hasattr(settings, 'SENTRY_DSN'):
     }
     settings.LOGGING['loggers']['']['handlers'].append('sentry')
 
-logging.config.dictConfig(settings.LOGGING)
+# Use logutils package if python<2.7
+if hasattr(logging.config, 'dictConfig'):
+    cls = logging.config
+else:
+    cls = logutils.dictconfig
+cls.dictConfig(settings.LOGGING)
