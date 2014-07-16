@@ -34,7 +34,7 @@ class Parser(object):
         raise NotImplementedError
 
 
-class KernelParser(Parser):
+class LogParser(Parser):
     def check_line(self, line):
         if re.findall(self.regexp, line):
             return False

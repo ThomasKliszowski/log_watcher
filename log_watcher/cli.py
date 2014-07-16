@@ -1,5 +1,5 @@
 from log_watcher import validators
-from log_watcher.parser import KernelParser
+from log_watcher.parser import LogParser
 from log_watcher.tracker import CloudwatchTracker
 from log_watcher.utils import get_hostname
 from log_watcher import settings
@@ -28,11 +28,10 @@ logger = logging.getLogger(__name__)
     default=30,
     help='Period between each tracker sends.')
 def cli(file_path, regexp, period):
-    # regexp=r'Not tainted|PAX: size overflow detected'
     logger.info('Initializing...')
 
     # Track Kernel log
-    parser = KernelParser(file_path=file_path, regexp=regexp)
+    parser = LogParser(file_path=file_path, regexp=regexp)
     tracker = CloudwatchTracker(name="%s_kernel_anomalies" % get_hostname(), period=period)
 
     while True:
