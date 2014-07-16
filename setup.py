@@ -8,7 +8,8 @@ version = '0.1.2'
 
 requirements = open(op.join(CURRENT_DIR, 'requirements.txt')).read()
 
-setup(name='log_watcher',
+setup(
+    name='log_watcher',
     packages=['log_watcher'],
 
     author='Thomas Kliszowski',

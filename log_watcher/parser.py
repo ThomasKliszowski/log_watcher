@@ -1,12 +1,9 @@
 from datetime import datetime
-
 import re
 
-# -----------------------------------------------------------------------------
 
 CURRENT_YEAR = datetime.now().year
 
-# -----------------------------------------------------------------------------
 
 class Parser(object):
     def __init__(self, file_path, regexp):
@@ -36,7 +33,6 @@ class Parser(object):
     def check_line(self, line):
         raise NotImplementedError
 
-# -----
 
 class KernelParser(Parser):
     def check_line(self, line):

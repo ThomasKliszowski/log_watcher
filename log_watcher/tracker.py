@@ -1,13 +1,10 @@
 from log_watcher import settings
 from boto.ec2 import cloudwatch
-
 from datetime import timedelta, datetime
 
 import logging
-
 logger = logging.getLogger(__name__)
 
-# -----------------------------------------------------------------------------
 
 class Tracker(object):
     def __init__(self, name, period=60):
@@ -29,7 +26,6 @@ class Tracker(object):
     def send_data(self):
         raise NotImplementedError
 
-# -----
 
 class CloudwatchTracker(Tracker):
     NAMESPACE = 'log_watcher'

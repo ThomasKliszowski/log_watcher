@@ -5,19 +5,26 @@ from log_watcher.utils import get_hostname
 
 import click
 import time
-# import os
+
 import logging
-
-# -----------------------------------------------------------------------------
-
 logger = logging.getLogger(__name__)
 
-# -----------------------------------------------------------------------------
 
 @click.command()
-@click.option('--file-path', default='/tmp/kern.log', help='File path to watch.', callback=validators.file_path)
-@click.option('--regexp', default=r'match-this-string', help='Regular expression to match.', callback=validators.regexp)
-@click.option('--period', default=30, help='How many minutes to wait between checks.')
+@click.option(
+    '--file-path',
+    default='/tmp/kern.log',
+    help='File path to watch.',
+    callback=validators.file_path)
+@click.option(
+    '--regexp',
+    default=r'match-this-string',
+    help='Regular expression to match.',
+    callback=validators.regexp)
+@click.option(
+    '--period',
+    default=30,
+    help='Period between each tracker sends.')
 def cli(file_path, regexp, period):
     # regexp=r'Not tainted|PAX: size overflow detected'
     logger.info('Initializing...')
@@ -34,7 +41,6 @@ def cli(file_path, regexp, period):
         tracker.track()
         time.sleep(1)
 
-# -----------------------------------------------------------------------------
 
 def main():
     try:
