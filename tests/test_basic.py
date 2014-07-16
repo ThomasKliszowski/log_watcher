@@ -4,6 +4,7 @@ from log_watcher.tracker import Tracker
 import time
 import tempfile
 import mock
+import os
 
 
 class TestTracker(Tracker):
@@ -18,7 +19,7 @@ def test_basic():
     fp.write('test match\n')
     fp.write('test\n')
 
-    file_path = "/tmp/kern.log"
+    file_path = os.path.abspath(fp.name)
     regexp = r'match'
     period = 1
 
