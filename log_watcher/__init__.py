@@ -1,6 +1,6 @@
 import log_watcher
-import imp
 import logging.config
+import imp
 import os
 
 # -----------------------------------------------------------------------------
